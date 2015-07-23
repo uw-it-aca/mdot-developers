@@ -1,21 +1,34 @@
-
-#!/usr/bin/env python
-
-# Taken from django's setup.py:
-
 import os
+from setuptools import setup
 
-from distutils.core import setup
-import setuptools
+# allow setup.py to be run from any path
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
-setup(name='mdot_developers',
-      version='1.0.4',
-      license = "Apache 2.0",
-      author = "UW-IT ACA",
-      author_email = "pmichaud@uw.edu",
-      packages=setuptools.find_packages(exclude=["project"]),
-      include_package_data=True,  # use MANIFEST.in during install
-      url='https://github.com/uw-it-aca/mdot-developers',
-      description='Clients for a variety of RESTful web services at the University of Washington',
-      install_requires=['Django<1.8', 'lxml==2.3.5', 'urllib3==1.10.2', 'twilio==3.4.1', 'boto', 'simplejson>=2.1', 'djangorestframework>=2.0', 'jsonpickle>=0.4.0', 'ordereddict>=1.1', 'python-dateutil>=2.1', 'unittest2>=0.5.1', 'pytz', 'icalendar', 'AuthZ-Group>=1.1.4', 'Django-UserService'],
-     )
+setup(
+    name='mdot_developers',
+    version='0.1',
+    packages=['mdot_developers'],
+    include_package_data=True,
+    install_requires = [
+        'setuptools',
+        'django',
+    ],
+    license='Apache License, Version 2.0',  # example license
+    description='A Django app for developer resources complimentary to mdot_web client.',
+    long_description=README,
+    url='http://www.example.com/',
+    author='Your Name',
+    author_email='yourname@example.com',
+    classifiers=[
+        'Environment :: Web Environment',
+        'Framework :: Django',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: Apache Software License', # example license
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Internet :: WWW/HTTP',
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+    ],
+)

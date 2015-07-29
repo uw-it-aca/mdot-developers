@@ -13,3 +13,6 @@ def home(request):
 
 def guidelines(request):
     return render_to_response('mdotdevs/guidelines.html', context_instance=RequestContext(request))
+    
+def process(request):
+    return render_to_response('mdotdevs/process.html', context_instance=RequestContext(request))

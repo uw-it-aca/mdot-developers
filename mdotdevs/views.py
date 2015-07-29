@@ -9,3 +9,7 @@ import json
 
 def home(request):
     return render_to_response('mdotdevs/home.html', context_instance=RequestContext(request))
+    
+
+def guidelines(request):
+    return render_to_response('mdotdevs/guidelines.html', context_instance=RequestContext(request))

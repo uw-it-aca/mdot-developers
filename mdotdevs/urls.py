@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'mdotdevs.views.home', name='home'),
     url(r'^guidelines/', 'mdotdevs.views.guidelines', name='guidelines'),
     url(r'^process/', 'mdotdevs.views.process', name='process'),
+    url(r'^review/', 'mdotdevs.views.review', name='review'),
     
     # url(r'^blog/', include('blog.urls')),
     #url(r'^admin/', include(admin.site.urls)),

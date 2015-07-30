@@ -16,3 +16,6 @@ def guidelines(request):
     
 def process(request):
     return render_to_response('mdotdevs/process.html', context_instance=RequestContext(request))
+    
+def review(request):
+    return render_to_response('mdotdevs/review.html', context_instance=RequestContext(request))

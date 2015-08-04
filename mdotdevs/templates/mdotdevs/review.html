@@ -11,66 +11,86 @@
         <h2 id="page_header">Submit your App for Review</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis turpis vel interdum pharetra. Morbi laoreet dui ac elementum lobortis. </p>
 
-        <form>
-            <p><label for="campus_audience" >Please describe what UW audiences your application is targeting.</label><br/>
-            <textarea id="campus_audience" name="campusaudience" style="width:35vw; height:100px;"></textarea></p>
+        <form action="/submit/" method="get">
             
-            <p><label for="campus_need" >Please describe how your application addresses a broad UW campus need.</label><br/>
-            <textarea id="campus_need" name="campusneed" style="width:35vw; height:100px;"></textarea></p>
-            
-            <p><fieldset>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+                <p>
+                    {{ form.campus_audience.errors }}
+                    {{ form.campus_audience.label_tag }}<br/>
+                    {{ form.campus_audience }}
+                </p>
+                <p>
+                    {{ form.campus_need.errors }}
+                    {{ form.campus_need.label_tag }}<br/>
+                    {{ form.campus_need }}
+                </p>
+                <fieldset>
                 <legend> Who is the official UW Sponsor of this app?</legend>
-                <label for="sponsor_name" >Name</label><br/>
-                <input type="text" id="sponsor_name" name="sponsorname"></input><br/>
-                <label for="sponsor_netid" >UW NetID</label><br/>
-                <input type="text" id="sponsor_netid" name="sponsornetid"></input><br/>
-                <label for="sponsor_email" >Email</label><br/>
-                <input type="email" id="sponsor_email" name="sponsoremail"></input><br/>
-            </fieldset></p>
-            
-            <p><fieldset>
+                {{ form.sponsor_name.errors }}
+                {{ form.sponsor_netid.errors }}
+                {{ form.sponsor_email.errors }}
+                {{ form.sponsor_name.label_tag }}<br/>
+                {{ form.sponsor_name }}<br/>
+                {{ form.sponsor_netid.label_tag }}<br/>
+                {{ form.sponsor_netid }}<br/>
+                {{ form.sponsor_email.label_tag }}<br/>
+                {{ form.sponsor_email }}<br/>
+                </fieldset>
+                <fieldset>
                 <legend> Who will maintain the app codebase?</legend>
-                <label for="dev_name" >Name</label><br/>
-                <input type="text" id="dev_name" name="devname"></input><br/>
-                <label for="dev_email" >Email</label><br/>
-                <input type="email" id="dev_email" name="devemail"></input><br/>
-            </fieldset></p>
-            
-            <p><fieldset>
+                {{ form.dev_name.errors }}
+                {{ form.dev_email.errors }}
+                {{ form.dev_name.label_tag }}<br/>
+                {{ form.dev_name }}<br/>
+                {{ form.dev_email.label_tag }}<br/>
+                {{ form.dev_email }}<br/>
+                </fieldset>
+                <fieldset>
                 <legend>Who do clients contact for support with your app?</legend>
-                <label for="support_name" >Name</label><br/>
-                <input type="text" id="support_name" name="supportname"></input><br/>
-                <label for="support_email" >Email</label><br/>
-                <input type="email" id="support_email" name="supportemail"></input><br/>
-                <label for="support_contact" >Other contact information</label><br/>
-                <textarea id="support_contact" name="supportcontact" style="width:35vw;"></textarea><br/>
-            </fieldset></p>
-            
-            <p> <fieldset>
+                {{ form.support_name.errors }}
+                {{ form.support_email.errors }}
+                {{ form.support_contact.errors }}
+                {{ form.support_name.label_tag }}<br/>
+                {{ form.support_name }}<br/>
+                {{ form.support_email.label_tag }}<br/>
+                {{ form.support_email }}<br/>
+                {{ form.support_contact.label_tag }}<br/>
+                {{ form.support_contact }}<br/>
+                </fieldset>
+                <fieldset>
                 <legend>What reviews have you conducted?</legend>
-                <input type="checkbox" id="ats_review" name="atsreview"></input>
-                <label for="ats_review" >Accessibility review with UW-IT Accessible Technology Services</label><br/>
-                <br/>
-                <input type="checkbox" id="ux_review" name="uxreview"></input>
-                <label for="ux_review" >Usability review with ACA UX team</label><br/>
-                <br/>
-                <input type="checkbox" id="brand_review" name="brandreview"></input>
-                <label for="brand_review" >Consulted UW Brand Guidelines</label><br/>
-            </fieldset></p>
-            
-            <p><label for="app_documentation">Provide URL for app documentation</label><br/>
-            <input type="url" id="app_documentation" name="appdocumentation" style="width:35vw;"></input></p>
-            
-            <p><label for="app_code">How might we be able to review the app?</label><br/>
-            <textarea id="app_code" name="appcode" style="width:35vw;"></textarea></p>
-            
-            <p><label for="campus_need" >Anything else that we should know?</label><br/>
-            <textarea id="campus_need" name="campusneed" style="width:35vw; height:100px;"></textarea></p>
-            
+                {{ form.ats_review.errors }}
+                {{ form.support_email.errors }}
+                {{ form.support_contact.errors }}
+                {{ form.ats_review }}
+                {{ form.ats_review.label_tag }}<br/>
+                {{ form.ux_review }}
+                {{ form.ux_review.label_tag }}<br/>
+                {{ form.brand_review }}
+                {{ form.brand_review.label_tag }}<br/>
+                </fieldset>
+                <p>
+                    {{ form.app_documentation.errors }}
+                    {{ form.app_documentation.label_tag }}<br/>
+                    {{ form.app_documentation }}
+                </p>
+                <p>
+                    {{ form.app_code.errors }}
+                    {{ form.app_code.label_tag }}<br/>
+                    {{ form.app_code }}
+                </p>
+                <p>
+                    {{ form.anything_else.errors }}
+                    {{ form.anything_else.label_tag }}<br/>
+                    {{ form.anything_else }}
+                </p>
+
+                
+                        
             <p><input type="reset" name="reset" value="Cancel">  
             <input type="submit" name="submit" value="Submit App for Review"></p>
-        
-                      
+             
         </form>
     </div>
 </div>

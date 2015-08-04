@@ -11,7 +11,7 @@
         <h2 id="page_header">Submit your App for Review</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis turpis vel interdum pharetra. Morbi laoreet dui ac elementum lobortis. </p>
 
-        <form action="/submit/" method="get">
+        <form method="post">
             
             {% csrf_token %}
             {{ form.non_field_errors }}
@@ -87,8 +87,8 @@
                 </p>
 
                 
-                        
-            <p><input type="reset" name="reset" value="Cancel">  
+                
+            <p><a href="/developers/">Cancel</a>  
             <input type="submit" name="submit" value="Submit App for Review"></p>
              
         </form>

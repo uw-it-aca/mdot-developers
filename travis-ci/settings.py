@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'django_mobileesp.middleware.UserAgentDetectionMiddleware',
+    # 'django_mobileesp.middleware.UserAgentDetectionMiddleware',
 )
 
 ROOT_URLCONF = 'travis-ci.urls'
@@ -134,15 +134,15 @@ COMPRESS_JS_FILTERS = [
 ACA_DEVTOOLS_ENABLED = True
 
 # mobileesp
-from django_mobileesp.detector import mobileesp_agent as agent
+# from django_mobileesp.detector import mobileesp_agent as agent
 
-DETECT_USER_AGENTS = {
-    'is_android': agent.detectAndroid,
-    'is_ios': agent.detectIos,
-    'is_windows_phone': agent.detectWindowsPhone,
-    'is_tablet': agent.detectTierTablet,
-    'is_mobile': agent.detectMobileQuick,
-}
+# DETECT_USER_AGENTS = {
+#    'is_android': agent.detectAndroid,
+#    'is_ios': agent.detectIos,
+#    'is_windows_phone': agent.detectWindowsPhone,
+#    'is_tablet': agent.detectTierTablet,
+#    'is_mobile': agent.detectMobileQuick,
+# }
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),

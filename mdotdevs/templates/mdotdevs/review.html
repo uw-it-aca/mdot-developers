@@ -11,66 +11,160 @@
         <h2 id="page_header">Submit your App for Review</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis turpis vel interdum pharetra. Morbi laoreet dui ac elementum lobortis. </p>
 
-        <form>
-            <p><label for="campus_audience" >Please describe what UW audiences your application is targeting.</label><br/>
-            <textarea id="campus_audience" name="campusaudience" style="width:35vw; height:100px;"></textarea></p>
+        <form method="post">
             
-            <p><label for="campus_need" >Please describe how your application addresses a broad UW campus need.</label><br/>
-            <textarea id="campus_need" name="campusneed" style="width:35vw; height:100px;"></textarea></p>
-            
-            <p><fieldset>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+                <p>
+                    <label for="{{ form.campus_audience.id_for_label }}">{{ form.campus_audience.label }}
+                    {% if form.campus_audience.errors %}
+                        {% for error in form.campus_audience.errors %}
+                         <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label>
+                    <br/>
+                    {{ form.campus_audience }}
+                </p>
+                <p>
+                    <label for="{{ form.campus_need.id_for_label }}">{{ form.campus_need.label }}
+                    {% if form.campus_need.errors %}
+                        {% for error in form.campus_need.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                    {{ form.campus_need }}
+                </p>
+                <fieldset>
                 <legend> Who is the official UW Sponsor of this app?</legend>
-                <label for="sponsor_name" >Name</label><br/>
-                <input type="text" id="sponsor_name" name="sponsorname"></input><br/>
-                <label for="sponsor_netid" >UW NetID</label><br/>
-                <input type="text" id="sponsor_netid" name="sponsornetid"></input><br/>
-                <label for="sponsor_email" >Email</label><br/>
-                <input type="email" id="sponsor_email" name="sponsoremail"></input><br/>
-            </fieldset></p>
-            
-            <p><fieldset>
+                <label for="{{ form.sponsor_name.id_for_label }}">{{ form.sponsor_name.label }}
+                    {% if form.sponsor_name.errors %}
+                        {% for error in form.sponsor_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.sponsor_name }}<br/>
+                <label for="{{ form.sponsor_netid.id_for_label }}">{{ form.sponsor_netid.label }}
+                    {% if form.sponsor_netid.errors %}
+                        {% for error in form.sponsor_netid.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.sponsor_netid }}<br/>
+                <label for="{{ form.sponsor_email.id_for_label }}">{{ form.sponsor_email.label }}
+                    {% if form.sponsor_email.errors %}
+                        {% for error in form.sponsor_email.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.sponsor_email }}<br/>
+                </fieldset>
+                <fieldset>
                 <legend> Who will maintain the app codebase?</legend>
-                <label for="dev_name" >Name</label><br/>
-                <input type="text" id="dev_name" name="devname"></input><br/>
-                <label for="dev_email" >Email</label><br/>
-                <input type="email" id="dev_email" name="devemail"></input><br/>
-            </fieldset></p>
-            
-            <p><fieldset>
+                <label for="{{ form.dev_name.id_for_label }}">{{ form.dev_name.label }}
+                    {% if form.dev_name.errors %}
+                        {% for error in form.dev_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.dev_name }}<br/>
+                <label for="{{ form.dev_email.id_for_label }}">{{ form.dev_email.label }}
+                    {% if form.dev_email.errors %}
+                        {% for error in form.dev_email.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.dev_email }}<br/>
+                </fieldset>
+                <fieldset>
                 <legend>Who do clients contact for support with your app?</legend>
-                <label for="support_name" >Name</label><br/>
-                <input type="text" id="support_name" name="supportname"></input><br/>
-                <label for="support_email" >Email</label><br/>
-                <input type="email" id="support_email" name="supportemail"></input><br/>
-                <label for="support_contact" >Other contact information</label><br/>
-                <textarea id="support_contact" name="supportcontact" style="width:35vw;"></textarea><br/>
-            </fieldset></p>
-            
-            <p> <fieldset>
+                <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
+                    {% if form.support_name.errors %}
+                        {% for error in form.support_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.support_name }}<br/>
+                <label for="{{ form.support_email.id_for_label }}">{{ form.support_email.label }}
+                    {% if form.support_email.errors %}
+                        {% for error in form.support_email.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.support_email }}<br/>
+                 <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
+                    {% if form.support_name.errors %}
+                        {% for error in form.support_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.support_name }}<br/>
+                <label for="{{ form.support_contact.id_for_label }}">{{ form.support_contact.label }}
+                    {% if form.support_contact.errors %}
+                        {% for error in form.support_contact.errors %}
+                        <span role="class="required alert"><strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% endif %}</label><br/>
+                {{ form.support_contact }}<br/>
+                </fieldset>
+                <fieldset>
                 <legend>What reviews have you conducted?</legend>
-                <input type="checkbox" id="ats_review" name="atsreview"></input>
-                <label for="ats_review" >Accessibility review with UW-IT Accessible Technology Services</label><br/>
-                <br/>
-                <input type="checkbox" id="ux_review" name="uxreview"></input>
-                <label for="ux_review" >Usability review with ACA UX team</label><br/>
-                <br/>
-                <input type="checkbox" id="brand_review" name="brandreview"></input>
-                <label for="brand_review" >Consulted UW Brand Guidelines</label><br/>
-            </fieldset></p>
-            
-            <p><label for="app_documentation">Provide URL for app documentation</label><br/>
-            <input type="url" id="app_documentation" name="appdocumentation" style="width:35vw;"></input></p>
-            
-            <p><label for="app_code">How might we be able to review the app?</label><br/>
-            <textarea id="app_code" name="appcode" style="width:35vw;"></textarea></p>
-            
-            <p><label for="campus_need" >Anything else that we should know?</label><br/>
-            <textarea id="campus_need" name="campusneed" style="width:35vw; height:100px;"></textarea></p>
-            
-            <p><input type="reset" name="reset" value="Cancel">  
+                {{ form.ats_review }}
+                {{ form.ats_review.label_tag }}<br/>
+                {{ form.ux_review }}
+                {{ form.ux_review.label_tag }}<br/>
+                {{ form.brand_review }}
+                {{ form.brand_review.label_tag }}<br/>
+                </fieldset>
+                <p>
+                    <label for="{{ form.app_documentation.id_for_label }}">{{ form.app_documentation.label }}
+                    {% if form.app_documentation.errors %}
+                        {% for error in form.app_documentation.errors %}
+                        <span role="class="required alert"><strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% endif %}</label><br/>
+                    {{ form.app_documentation }}
+                </p>
+                <p>
+                    <label for="{{ form.app_code.id_for_label }}">{{ form.app_code.label }}
+                    {% if form.app_code.errors %}
+                        {% for error in form.app_code.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                    {{ form.app_code }}
+                </p>
+                <p>
+                    {{ form.anything_else.label_tag }}<br/>
+                    {{ form.anything_else }}
+                </p>
+
+                
+                
+            <p><a href="/developers/">Cancel</a>  
             <input type="submit" name="submit" value="Submit App for Review"></p>
-        
-                      
+             
         </form>
     </div>
 </div>

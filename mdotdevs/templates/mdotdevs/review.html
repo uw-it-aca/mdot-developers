@@ -16,53 +16,118 @@
             {% csrf_token %}
             {{ form.non_field_errors }}
                 <p>
-                    {{ form.campus_audience.errors }}
-                    {{ form.campus_audience.label_tag }}<br/>
+                    <label for="{{ form.campus_audience.id_for_label }}">{{ form.campus_audience.label }}
+                    {% if form.campus_audience.errors %}
+                        {% for error in form.campus_audience.errors %}
+                         <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label>
+                    <br/>
                     {{ form.campus_audience }}
                 </p>
                 <p>
-                    {{ form.campus_need.errors }}
-                    {{ form.campus_need.label_tag }}<br/>
+                    <label for="{{ form.campus_need.id_for_label }}">{{ form.campus_need.label }}
+                    {% if form.campus_need.errors %}
+                        {% for error in form.campus_need.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                     {{ form.campus_need }}
                 </p>
                 <fieldset>
                 <legend> Who is the official UW Sponsor of this app?</legend>
-                {{ form.sponsor_name.errors }}
-                {{ form.sponsor_netid.errors }}
-                {{ form.sponsor_email.errors }}
-                {{ form.sponsor_name.label_tag }}<br/>
+                <label for="{{ form.sponsor_name.id_for_label }}">{{ form.sponsor_name.label }}
+                    {% if form.sponsor_name.errors %}
+                        {% for error in form.sponsor_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                 {{ form.sponsor_name }}<br/>
-                {{ form.sponsor_netid.label_tag }}<br/>
+                <label for="{{ form.sponsor_netid.id_for_label }}">{{ form.sponsor_netid.label }}
+                    {% if form.sponsor_netid.errors %}
+                        {% for error in form.sponsor_netid.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                 {{ form.sponsor_netid }}<br/>
-                {{ form.sponsor_email.label_tag }}<br/>
+                <label for="{{ form.sponsor_email.id_for_label }}">{{ form.sponsor_email.label }}
+                    {% if form.sponsor_email.errors %}
+                        {% for error in form.sponsor_email.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                 {{ form.sponsor_email }}<br/>
                 </fieldset>
                 <fieldset>
                 <legend> Who will maintain the app codebase?</legend>
-                {{ form.dev_name.errors }}
-                {{ form.dev_email.errors }}
-                {{ form.dev_name.label_tag }}<br/>
+                <label for="{{ form.dev_name.id_for_label }}">{{ form.dev_name.label }}
+                    {% if form.dev_name.errors %}
+                        {% for error in form.dev_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                 {{ form.dev_name }}<br/>
-                {{ form.dev_email.label_tag }}<br/>
+                <label for="{{ form.dev_email.id_for_label }}">{{ form.dev_email.label }}
+                    {% if form.dev_email.errors %}
+                        {% for error in form.dev_email.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                 {{ form.dev_email }}<br/>
                 </fieldset>
                 <fieldset>
                 <legend>Who do clients contact for support with your app?</legend>
-                {{ form.support_name.errors }}
-                {{ form.support_email.errors }}
-                {{ form.support_contact.errors }}
-                {{ form.support_name.label_tag }}<br/>
+                <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
+                    {% if form.support_name.errors %}
+                        {% for error in form.support_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                 {{ form.support_name }}<br/>
-                {{ form.support_email.label_tag }}<br/>
+                <label for="{{ form.support_email.id_for_label }}">{{ form.support_email.label }}
+                    {% if form.support_email.errors %}
+                        {% for error in form.support_email.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                 {{ form.support_email }}<br/>
-                {{ form.support_contact.label_tag }}<br/>
+                 <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
+                    {% if form.support_name.errors %}
+                        {% for error in form.support_name.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
+                {{ form.support_name }}<br/>
+                <label for="{{ form.support_contact.id_for_label }}">{{ form.support_contact.label }}
+                    {% if form.support_contact.errors %}
+                        {% for error in form.support_contact.errors %}
+                        <span role="class="required alert"><strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% endif %}</label><br/>
                 {{ form.support_contact }}<br/>
                 </fieldset>
                 <fieldset>
                 <legend>What reviews have you conducted?</legend>
-                {{ form.ats_review.errors }}
-                {{ form.support_email.errors }}
-                {{ form.support_contact.errors }}
                 {{ form.ats_review }}
                 {{ form.ats_review.label_tag }}<br/>
                 {{ form.ux_review }}
@@ -71,17 +136,26 @@
                 {{ form.brand_review.label_tag }}<br/>
                 </fieldset>
                 <p>
-                    {{ form.app_documentation.errors }}
-                    {{ form.app_documentation.label_tag }}<br/>
+                    <label for="{{ form.app_documentation.id_for_label }}">{{ form.app_documentation.label }}
+                    {% if form.app_documentation.errors %}
+                        {% for error in form.app_documentation.errors %}
+                        <span role="class="required alert"><strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% endif %}</label><br/>
                     {{ form.app_documentation }}
                 </p>
                 <p>
-                    {{ form.app_code.errors }}
-                    {{ form.app_code.label_tag }}<br/>
+                    <label for="{{ form.app_code.id_for_label }}">{{ form.app_code.label }}
+                    {% if form.app_code.errors %}
+                        {% for error in form.app_code.errors %}
+                        <span role="class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        {% endfor %}
+                    {% else %}
+                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
+                    {% endif %}</label><br/>
                     {{ form.app_code }}
                 </p>
                 <p>
-                    {{ form.anything_else.errors }}
                     {{ form.anything_else.label_tag }}<br/>
                     {{ form.anything_else }}
                 </p>

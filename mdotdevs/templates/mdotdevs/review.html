@@ -19,7 +19,7 @@
                     <label for="{{ form.campus_audience.id_for_label }}">{{ form.campus_audience.label }}
                     {% if form.campus_audience.errors %}
                         {% for error in form.campus_audience.errors %}
-                         <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                         <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -31,7 +31,7 @@
                     <label for="{{ form.campus_need.id_for_label }}">{{ form.campus_need.label }}
                     {% if form.campus_need.errors %}
                         {% for error in form.campus_need.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -43,7 +43,7 @@
                 <label for="{{ form.sponsor_name.id_for_label }}">{{ form.sponsor_name.label }}
                     {% if form.sponsor_name.errors %}
                         {% for error in form.sponsor_name.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -52,7 +52,7 @@
                 <label for="{{ form.sponsor_netid.id_for_label }}">{{ form.sponsor_netid.label }}
                     {% if form.sponsor_netid.errors %}
                         {% for error in form.sponsor_netid.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -61,7 +61,7 @@
                 <label for="{{ form.sponsor_email.id_for_label }}">{{ form.sponsor_email.label }}
                     {% if form.sponsor_email.errors %}
                         {% for error in form.sponsor_email.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -73,7 +73,7 @@
                 <label for="{{ form.dev_name.id_for_label }}">{{ form.dev_name.label }}
                     {% if form.dev_name.errors %}
                         {% for error in form.dev_name.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -82,7 +82,7 @@
                 <label for="{{ form.dev_email.id_for_label }}">{{ form.dev_email.label }}
                     {% if form.dev_email.errors %}
                         {% for error in form.dev_email.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -94,7 +94,7 @@
                 <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
                     {% if form.support_name.errors %}
                         {% for error in form.support_name.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
@@ -103,25 +103,16 @@
                 <label for="{{ form.support_email.id_for_label }}">{{ form.support_email.label }}
                     {% if form.support_email.errors %}
                         {% for error in form.support_email.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
                     {% endif %}</label><br/>
                 {{ form.support_email }}<br/>
-                 <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
-                    {% if form.support_name.errors %}
-                        {% for error in form.support_name.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
-                        {% endfor %}
-                    {% else %}
-                    <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.support_name }}<br/>
                 <label for="{{ form.support_contact.id_for_label }}">{{ form.support_contact.label }}
                     {% if form.support_contact.errors %}
                         {% for error in form.support_contact.errors %}
-                        <span role="alert" class="required alert"><strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid"><strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% endif %}</label><br/>
                 {{ form.support_contact }}<br/>
@@ -139,7 +130,7 @@
                     <label for="{{ form.app_documentation.id_for_label }}">{{ form.app_documentation.label }}
                     {% if form.app_documentation.errors %}
                         {% for error in form.app_documentation.errors %}
-                        <span role="alert" class="required alert"><strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid"><strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% endif %}</label><br/>
                     {{ form.app_documentation }}
@@ -148,7 +139,7 @@
                     <label for="{{ form.app_code.id_for_label }}">{{ form.app_code.label }}
                     {% if form.app_code.errors %}
                         {% for error in form.app_code.errors %}
-                        <span role="alert" class="required alert">* <strong>{{ error|escape }}</strong></span>
+                        <span role="alert" class="required invalid">* <strong>{{ error|escape }}</strong></span>
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>

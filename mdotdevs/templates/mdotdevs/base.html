@@ -17,6 +17,21 @@
 {% endblock %}
 
 
+{% load staticfiles %}
+
+{% block app_css_mobile %}
+<link rel="stylesheet" href="{% static "mdotdevs/css/mobile.less" %}" type="text/less">
+{% endblock %}
+
+{% block app_css_tablet %}
+<link rel="stylesheet" href="{% static "mdotdevs/css/mobile.less" %}" type="text/less">
+{% endblock %} 
+
+{% block app_css_desktop %}
+<link rel="stylesheet" href="{% static "mdotdevs/css/mobile.less" %}" type="text/less">
+<link rel="stylesheet" href="{% static "mdotdevs/css/desktop.less" %}" type="text/less">
+{% endblock %} 
+
 {% block content %}{% endblock %}
 
 {% block subcontent %}

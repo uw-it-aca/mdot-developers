@@ -110,5 +110,10 @@ class MdotdevsFormTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual('Invalid header found.', response.content)
 
+    def test_review_get(self):
+        response = self.client.get('/developers/review/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('Submit your App for Review' in response.content)
+
     def tearDown(self):
         pass

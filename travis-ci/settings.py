@@ -71,9 +71,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'mdotdevs.context_processors.less_compiled',
-                'mdotdevs.context_processors.google_analytics',
-                'mdotdevs.context_processors.devtools_bar',
+                'mdot.context_processors.less_compiled',
+                'mdot.context_processors.google_analytics',
+                'mdot.context_processors.devtools_bar',
             ],
         },
     },
@@ -115,7 +115,7 @@ STATIC_URL = '/static/'
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
+    # "compressor.finders.CompressorFinder",
 )
 
 COMPRESS_ROOT = "/tmp/some/path/for/files"

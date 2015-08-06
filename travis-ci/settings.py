@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     # 'rest_framework',
     'mdotdevs',
     # 'mdot_rest',
-    # 'mdot',
+    'mdot',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,6 +118,9 @@ STATICFILES_FINDERS = (
     "compressor.finders.CompressorFinder",
 )
 
+MEDIA_ROOT = '/vagrant/'
+MEDIA_URL = '/media/'
+
 COMPRESS_ROOT = "/tmp/some/path/for/files"
 COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
 COMPRESS_ENABLED = False   # True if you want to compress your development build
@@ -127,8 +130,10 @@ COMPRESS_CSS_FILTERS = [
     'compressor.filters.cssmin.CSSMinFilter'
 ]
 COMPRESS_JS_FILTERS = [
-    #'compressor.filters.jsmin.JSMinFilter',
+    'compressor.filters.jsmin.JSMinFilter',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # devtools
 ACA_DEVTOOLS_ENABLED = True
@@ -147,3 +152,6 @@ ACA_DEVTOOLS_ENABLED = True
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
 }
+
+# RESTCLIENTS_MDOT_DAO_CLASS = 'mdot.mdot_rest_client.client.MDOTLive'
+RESTCLIENTS_MDOT_HOST = 'http://localhost:8000/'

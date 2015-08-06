@@ -1,3 +1,4 @@
-from django.test import TestCase
+from django.utils import unittest
 
-# Create your tests here.
+from mdotdevs.test.url_and_view import MdotdevTest
+from mdotdevs.test.forms import MdotdevsFormTest

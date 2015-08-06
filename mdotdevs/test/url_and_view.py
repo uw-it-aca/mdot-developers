@@ -69,7 +69,7 @@ class MdotdevTest(TestCase):
 
     def test_view_review(self):
         """
-        Test that request to review url returns a status code 
+        Test that request to review url returns a status code
         of 200.
         """
         response = self.client.get('/developers/review/')

@@ -4,6 +4,10 @@ from mdotdevs.forms import ReviewForm
 
 
 class MdotdevsFormTest(TestCase):
+    """
+    Tests that cover the fuctionality of the
+    Review Form.
+    """
 
     def setUp(self):
         self.client = Client()
@@ -111,6 +115,10 @@ class MdotdevsFormTest(TestCase):
         self.assertEqual('Invalid header found.', response.content)
 
     def test_review_get(self):
+        """
+        Test that a get request to the url will send the user
+        to the form.
+        """
         response = self.client.get('/developers/review/')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('Submit your App for Review' in response.content)

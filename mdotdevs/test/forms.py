@@ -4,6 +4,10 @@ from mdotdevs.forms import ReviewForm
 
 
 class MdotdevsFormTest(TestCase):
+    """
+    Tests that cover the fuctionality of the
+    Review Form.
+    """
 
     def setUp(self):
         self.client = Client()
@@ -79,6 +83,45 @@ class MdotdevsFormTest(TestCase):
         # Make sure the user is sent to the thank you
         # page after submitting valid form
         self.assertTrue('Thank you' in response.content)
+
+    def test_bad_header(self):
+        """
+        Test that when given incorrect data the request contains
+        'Invalid header found.'.
+
+        The new line character in the sponsor_name is
+        what causes the error.
+        """
+
+        form_data = {
+            'campus_audience': 'Student',
+            'campus_need': 'Test',
+            'sponsor_name': 'Test\n Case',
+            'sponsor_netid': 'testcase',
+            'sponsor_email': 'testcase@uw.edu',
+            'dev_name': 'Test Case',
+            'dev_email': 'testcase@uw.edu',
+            'support_name': 'Test Case',
+            'support_email': 'testcase@uw.edu',
+            'support_contact': 'test',
+            'ats_review': True,
+            'ux_review': True,
+            'brand_review': True,
+            'app_documentation': 'http://spacescout.uw.edu',
+            'app_code': '<?php ?>',
+            'anything_else': 'This is a test.'}
+        response = self.client.post('/developers/review/', form_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual('Invalid header found.', response.content)
+
+    def test_review_get(self):
+        """
+        Test that a get request to the url will send the user
+        to the form.
+        """
+        response = self.client.get('/developers/review/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('Submit your App for Review' in response.content)
 
     def tearDown(self):
         pass

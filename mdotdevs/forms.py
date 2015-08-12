@@ -9,16 +9,16 @@ class ReviewForm(forms.Form):
     campus_need = forms.CharField(
         widget=forms.widgets.Textarea(),
         label='What broad UW campus need does your application address?')
-    sponsor_name = forms.CharField(label='Name')
-    sponsor_netid = forms.CharField(label='UW NetID')
-    sponsor_email = forms.EmailField(label='Email')
-    dev_name = forms.CharField(label='UW NetID')
-    dev_email = forms.EmailField(label='Email')
-    support_name = forms.CharField(label='Name')
-    support_email = forms.EmailField(label='Email')
+    sponsor_name = forms.CharField(label='Name:')
+    sponsor_netid = forms.CharField(label='UW NetID:')
+    sponsor_email = forms.EmailField(label='Email:')
+    dev_name = forms.CharField(label='UW NetID:')
+    dev_email = forms.EmailField(label='Email:')
+    support_name = forms.CharField(label='Name:')
+    support_email = forms.EmailField(label='Email:')
     support_contact = forms.CharField(
         widget=forms.widgets.Textarea(),
-        label='Other contact information',
+        label='Other contact information:',
         required=False)
     ats_review = forms.BooleanField(
         required=False,

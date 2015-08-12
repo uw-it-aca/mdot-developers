@@ -38,7 +38,7 @@
                     {{ form.campus_need }}
                 </p>
                 <fieldset>
-                <legend> Who is the official UW Sponsor of this app?</legend>
+                <legend> Official UW Sponsor:</legend>
                 <label for="{{ form.sponsor_name.id_for_label }}">{{ form.sponsor_name.label }}
                     {% if form.sponsor_name.errors %}
                         {% for error in form.sponsor_name.errors %}
@@ -89,7 +89,7 @@
                 {{ form.dev_email }}
                 </fieldset>
                 <fieldset>
-                <legend>Who do clients contact for support with your app?</legend>
+                <legend>Who do clients contact for app support?</legend>
                 <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
                     {% if form.support_name.errors %}
                         {% for error in form.support_name.errors %}

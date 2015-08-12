@@ -5,12 +5,10 @@ from django import forms
 class ReviewForm(forms.Form):
     campus_audience = forms.CharField(
         widget=forms.widgets.Textarea(),
-        label='Please describe what UW audiences your application \
-            is targeting.')
+        label='What UW audiences does your application target?')
     campus_need = forms.CharField(
         widget=forms.widgets.Textarea(),
-        label='Please describe how your application addresses \
-            a broad UW campus need.')
+        label='What broad UW campus need does your application address?')
     sponsor_name = forms.CharField(label='Name')
     sponsor_netid = forms.CharField(label='UW NetID')
     sponsor_email = forms.EmailField(label='Email')
@@ -40,7 +38,7 @@ class ReviewForm(forms.Form):
             brand/">UW Brand Guidelines</a>'),
         label_suffix='')
     app_documentation = forms.URLField(
-        label='Provide URL for app documentation',
+        label='URL for app documentation:',
         required=False)
     app_code = forms.CharField(
         widget=forms.widgets.Textarea(),

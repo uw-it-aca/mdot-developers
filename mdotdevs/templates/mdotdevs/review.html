@@ -9,7 +9,7 @@
     <div class="container" >
         
         <h2 id="page_header">Submit your App for Review</h2>
-        <p>To have your app reviewed for inclusion in the UW Development App Stores, please fill out the form below.</p>
+        <p class="article">Ready to submit your app for inclusion in the UW Development App Stores? Does it meet our <a href="/developers/guidelines">publishing guidelines</a>? If so, please fill out the form below. We will review your app and let you know the next steps.</p>
 
         <form method="post">
             
@@ -24,7 +24,6 @@
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
                     {% endif %}</label>
-                    <br/>
                     {{ form.campus_audience }}
                 </p>
                 <p>
@@ -35,11 +34,11 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
+                    {% endif %}</label>
                     {{ form.campus_need }}
                 </p>
                 <fieldset>
-                <legend> Who is the official UW Sponsor of this app?</legend>
+                <legend> Official UW Sponsor:</legend>
                 <label for="{{ form.sponsor_name.id_for_label }}">{{ form.sponsor_name.label }}
                     {% if form.sponsor_name.errors %}
                         {% for error in form.sponsor_name.errors %}
@@ -47,8 +46,8 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.sponsor_name }}<br/>
+                    {% endif %}</label>
+                {{ form.sponsor_name }}
                 <label for="{{ form.sponsor_netid.id_for_label }}">{{ form.sponsor_netid.label }}
                     {% if form.sponsor_netid.errors %}
                         {% for error in form.sponsor_netid.errors %}
@@ -56,8 +55,8 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.sponsor_netid }}<br/>
+                    {% endif %}</label>
+                {{ form.sponsor_netid }}
                 <label for="{{ form.sponsor_email.id_for_label }}">{{ form.sponsor_email.label }}
                     {% if form.sponsor_email.errors %}
                         {% for error in form.sponsor_email.errors %}
@@ -65,8 +64,8 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.sponsor_email }}<br/>
+                    {% endif %}</label>
+                {{ form.sponsor_email }}
                 </fieldset>
                 <fieldset>
                 <legend> Who will maintain the app codebase?</legend>
@@ -77,8 +76,8 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.dev_name }}<br/>
+                    {% endif %}</label>
+                {{ form.dev_name }}
                 <label for="{{ form.dev_email.id_for_label }}">{{ form.dev_email.label }}
                     {% if form.dev_email.errors %}
                         {% for error in form.dev_email.errors %}
@@ -86,11 +85,11 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.dev_email }}<br/>
+                    {% endif %}</label>
+                {{ form.dev_email }}
                 </fieldset>
                 <fieldset>
-                <legend>Who do clients contact for support with your app?</legend>
+                <legend>Who do clients contact for app support?</legend>
                 <label for="{{ form.support_name.id_for_label }}">{{ form.support_name.label }}
                     {% if form.support_name.errors %}
                         {% for error in form.support_name.errors %}
@@ -98,8 +97,8 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.support_name }}<br/>
+                    {% endif %}</label>
+                {{ form.support_name }}
                 <label for="{{ form.support_email.id_for_label }}">{{ form.support_email.label }}
                     {% if form.support_email.errors %}
                         {% for error in form.support_email.errors %}
@@ -107,34 +106,35 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
-                {{ form.support_email }}<br/>
+                    {% endif %}</label>
+                {{ form.support_email }}
                 <label for="{{ form.support_contact.id_for_label }}">{{ form.support_contact.label }}
                     {% if form.support_contact.errors %}
                         {% for error in form.support_contact.errors %}
                         <span role="alert" class="required invalid"><strong>{{ error|escape }}</strong></span>
                         {% endfor %}
-                    {% endif %}</label><br/>
-                {{ form.support_contact }}<br/>
+                    {% endif %}</label>
+                {{ form.support_contact }}
                 </fieldset>
-                <fieldset>
+                <fieldset class="checkbox-list">
                 <legend>What reviews have you conducted?</legend>
-                {{ form.ats_review }}
-                {{ form.ats_review.label_tag }}<br/>
-                {{ form.ux_review }}
-                {{ form.ux_review.label_tag }}<br/>
-                {{ form.brand_review }}
-                {{ form.brand_review.label_tag }}<br/>
+                <div>{{ form.ats_review }}
+                {{ form.ats_review.label_tag }}</div>
+                <div>{{ form.ux_review }}
+                {{ form.ux_review.label_tag }}</div>
+                <div>{{ form.brand_review }}
+                {{ form.brand_review.label_tag }}</div>
                 </fieldset>
-                <p>
+                <p class="url-field">
                     <label for="{{ form.app_documentation.id_for_label }}">{{ form.app_documentation.label }}
                     {% if form.app_documentation.errors %}
                         {% for error in form.app_documentation.errors %}
                         <span role="alert" class="required invalid"><strong>{{ error|escape }}</strong></span>
                         {% endfor %}
-                    {% endif %}</label><br/>
+                    {% endif %}</label>
                     {{ form.app_documentation }}
                 </p>
+                
                 <p>
                     <label for="{{ form.app_code.id_for_label }}">{{ form.app_code.label }}
                     {% if form.app_code.errors %}
@@ -143,18 +143,18 @@
                         {% endfor %}
                     {% else %}
                     <span class="required"><strong>* <span class="sr-only">Required</span></strong></span>
-                    {% endif %}</label><br/>
+                    {% endif %}</label>
                     {{ form.app_code }}
                 </p>
                 <p>
-                    {{ form.anything_else.label_tag }}<br/>
+                    {{ form.anything_else.label_tag }}
                     {{ form.anything_else }}
                 </p>
 
                 
                 
-            <p><a href="/developers/">Cancel</a>  
-            <input type="submit" name="submit" value="Submit App for Review"></p>
+            <p class="btn-container"><a href="/developers/" class="btn">Cancel</a>  
+            <input type="submit" class="btn btn-primary" name="submit" value="Submit for Review"></p>
              
         </form>
     </div>

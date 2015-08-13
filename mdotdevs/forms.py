@@ -5,22 +5,20 @@ from django import forms
 class ReviewForm(forms.Form):
     campus_audience = forms.CharField(
         widget=forms.widgets.Textarea(),
-        label='Please describe what UW audiences your application \
-            is targeting.')
+        label='What UW audiences does your application target?')
     campus_need = forms.CharField(
         widget=forms.widgets.Textarea(),
-        label='Please describe how your application addresses \
-            a broad UW campus need.')
-    sponsor_name = forms.CharField(label='Name')
-    sponsor_netid = forms.CharField(label='UW NetID')
-    sponsor_email = forms.EmailField(label='Email')
-    dev_name = forms.CharField(label='UW NetID')
-    dev_email = forms.EmailField(label='Email')
-    support_name = forms.CharField(label='Name')
-    support_email = forms.EmailField(label='Email')
+        label='What broad UW campus need does your application address?')
+    sponsor_name = forms.CharField(label='Name:')
+    sponsor_netid = forms.CharField(label='UW NetID:')
+    sponsor_email = forms.EmailField(label='Email:')
+    dev_name = forms.CharField(label='UW NetID:')
+    dev_email = forms.EmailField(label='Email:')
+    support_name = forms.CharField(label='Name:')
+    support_email = forms.EmailField(label='Email:')
     support_contact = forms.CharField(
         widget=forms.widgets.Textarea(),
-        label='Other contact information',
+        label='Other contact information:',
         required=False)
     ats_review = forms.BooleanField(
         required=False,
@@ -40,7 +38,7 @@ class ReviewForm(forms.Form):
             brand/">UW Brand Guidelines</a>'),
         label_suffix='')
     app_documentation = forms.URLField(
-        label='Provide URL for app documentation',
+        label='URL for app documentation:',
         required=False)
     app_code = forms.CharField(
         widget=forms.widgets.Textarea(),

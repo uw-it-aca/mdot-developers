@@ -19,7 +19,7 @@
  <!-- critical css (above the fold styles) -->
 {% block app_css_inline %}
 .mdot-developers { 
-    .container { margin-bottom:0; padding-bottom:15px;  border-bottom: grey solid 1px; background-color: white;}
+    .container { margin-bottom:0; padding-bottom:15px; background-color: white;}
 }
 p,div {
 	&.article	{margin-bottom:25px;}
@@ -39,24 +39,33 @@ p,div {
         <div class="row" >
         	    
             <div class="col-md-8 mdot-resource-group" role="complementary" aria-labelledby="publish_header">
-                <h2 id="publish_header">Publishing native apps at the UW</h2>
-                <p class="text-muted">If your native app is intended for broad UW use, consider publication in the UW Developer App Store.</p>
+                <h2 class="sub-content-header" id="publish_header">Publishing native apps at UW</h2>
+                <div class="sub-content-article">
+                <p>If your native app is intended for broad UW use, consider publication in the UW Developer App Store.</p>
                 <ul>    
                     <li><a href="/developers/guidelines">Guidelines</a></li>
                     <li><a href="/developers/process" class="mdot-resource-link">Process Overview</a></li>
                     <li><a href="/developers/review" class="mdot-resource-link">Submit your application</a></li>
                 </ul>
+                </div>
             </div>
             <div class="col-md-4 mdot-resource-group" role="complementary" aria-labelledby="help_header">
-              <h2 id="help_header">Get Help</h2>
+              <h2 class="sub-content-header" id="help_header">Get Help</h2>
+              <div class="sub-content-article">
                 <ul>    
-                    <li><a href="/developers">Building a mobile app (link)</a></li>
-                    <li><a href="mailto:help@uw.edu">Publishing your app</a></li>
-                    <li><a href="mailto:help@uw.edu">Creating app store</a></li>
-                    <li><a href="mailto:ux@uw.edu">User Experience/Usability consultation</a></li>
-                    <li><a href="mailto:help@uw.edu">Accessibility consultation (Accessible Technology Services)</a></li>
-                    <li><a href="http://www.washington.edu/brand/">UW Brand Guidelines (link)</a></li> 
-                </ul>            
+                    <li><div class="sub-content-category">Resources:</div>
+                    	<ul>
+							<li><a href="/developers">Building a Mobile App</a></li>
+							<li><a href="http://www.washington.edu/accessibility/help/">Accessibility Help</a></li>
+							<li><a href="http://www.washington.edu/brand/">UW Brand Guidelines (link)</a></li>
+                    	</ul></li>
+                    	<li><div class="sub-content-category" style="padding-top:10px;">Email Us About:</div><ul>
+							<li><a href="mailto:help@uw.edu">Publishing Your App</a></li>
+							<li><a href="mailto:help@uw.edu">Creating an App Store</a></li>
+							<li><a href="mailto:ux@uw.edu">User Experience/Usability Consultation</a></li>
+                    	</ul></li>                  
+                </ul> 
+              </div>           
             </div>            
         </div>
         

@@ -11,20 +11,14 @@
 {% endblock %}
 
 {% block app_css_desktop %}
-<link rel="stylesheet" href="{% static "mdotdevs/css/mobile.less" %}" type="text/less">
-<link rel="stylesheet" href="{% static "mdotdevs/css/tablet.less" %}" type="text/less">
-<link rel="stylesheet" href="{% static "mdotdevs/css/desktop.less" %}" type="text/less">
+<link rel="stylesheet" href="{% static 'mdotdevs/css/mobile.less' %}" type="text/less">
+<link rel="stylesheet" href="{% static 'mdotdevs/css/tablet.less' %}" type="text/less">
+<link rel="stylesheet" href="{% static 'mdotdevs/css/desktop.less' %}" type="text/less">
 {% endblock %}
 
  <!-- critical css (above the fold styles) -->
 {% block app_css_inline %}
-.mdot-developers { 
-    .container { margin-bottom:0; padding-bottom:15px; background-color: white;}
-}
-p,div {
-	&.article	{margin-bottom:25px;}
-	}
-	
+<link rel="stylesheet" href="{% static 'mdotdevs/css/inline.less' %}" type="text/less">
 {% endblock %}
 
 

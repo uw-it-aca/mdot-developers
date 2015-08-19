@@ -22,20 +22,17 @@ class ReviewForm(forms.Form):
         required=False)
     ats_review = forms.BooleanField(
         required=False,
-        label=mark_safe('Accessibility review with <a href="http://www.\
-            washington.edu/accessibility/" title="Accessible Technology \
+        label=mark_safe('Accessibility review with <a href="http://www.washington.edu/accessibility/" title="Accessible Technology \
             Services">UW-IT ATS</a>'),
         label_suffix='')
     ux_review = forms.BooleanField(
         required=False,
-        label=mark_safe('Usability review with <a href="http://depts.\
-            washington.edu/ux/consultation/" title="ACA User Experience \
+        label=mark_safe('Usability review with <a href="http://depts.washington.edu/ux/consultation/" title="ACA User Experience \
             Team">ACA UX team</a>'),
         label_suffix='')
     brand_review = forms.BooleanField(
         required=False,
-        label=mark_safe('Consulted <a href="http://www.washington.edu/\
-            brand/">UW Brand Guidelines</a>'),
+        label=mark_safe('Consulted <a href="http://www.washington.edu/brand/">UW Brand Guidelines</a>'),
         label_suffix='')
     app_documentation = forms.URLField(
         label='URL for app documentation:',

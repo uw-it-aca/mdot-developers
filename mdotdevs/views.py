@@ -55,7 +55,7 @@ def review(request):
             try:
                 send_mail(
                     sponsor_name,
-                    get_template('mdotdevs/email.html').render(
+                    get_template('mdotdevs/email_plain.html').render(
                         Context({
                             'campus_audience': campus_audience,
                             'campus_need': campus_need,

@@ -75,7 +75,8 @@ def review(request):
                             'anything_else': anything_else
                         })),
                     sponsor_email, ['jcivjan@uw.edu'],
-                    html_message=get_template('mdotdevs/email_html.html').render(
+                    html_message=get_template('mdotdevs/email_html.html')
+                    .render(
                         Context({
                             'campus_audience': campus_audience,
                             'campus_need': campus_need,
@@ -94,7 +95,7 @@ def review(request):
                             'app_code': app_code,
                             'anything_else': anything_else
                         })),
-		),
+                ),
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return render_to_response(

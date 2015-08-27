@@ -52,49 +52,33 @@ def review(request):
             app_documentation = form.cleaned_data['app_documentation']
             app_code = form.cleaned_data['app_code']
             anything_else = form.cleaned_data['anything_else']
+
+            email_context = Context({
+                'campus_audience': campus_audience,
+                'campus_need': campus_need,
+                'sponsor_name': sponsor_name,
+                'sponsor_netid': sponsor_netid,
+                'sponsor_email': sponsor_email,
+                'dev_name': dev_name,
+                'dev_email': dev_email,
+                'support_name': support_name,
+                'support_email': support_email,
+                'support_contact': support_contact,
+                'ats_review': ats_review,
+                'ux_review': ux_review,
+                'brand_review': brand_review,
+                'app_documentation': app_documentation,
+                'app_code': app_code,
+                'anything_else': anything_else
+            })
             try:
                 send_mail(
                     sponsor_name,
-                    get_template('mdotdevs/email_plain.html').render(
-                        Context({
-                            'campus_audience': campus_audience,
-                            'campus_need': campus_need,
-                            'sponsor_name': sponsor_name,
-                            'sponsor_netid': sponsor_netid,
-                            'sponsor_email': sponsor_email,
-                            'dev_name': dev_name,
-                            'dev_email': dev_email,
-                            'support_name': support_name,
-                            'support_email': support_email,
-                            'support_contact': support_contact,
-                            'ats_review': ats_review,
-                            'ux_review': ux_review,
-                            'brand_review': brand_review,
-                            'app_documentation': app_documentation,
-                            'app_code': app_code,
-                            'anything_else': anything_else
-                        })),
+                    get_template(
+                        'mdotdevs/email_plain.html').render(email_context),
                     sponsor_email, ['jcivjan@uw.edu'],
                     html_message=get_template('mdotdevs/email_html.html')
-                    .render(
-                        Context({
-                            'campus_audience': campus_audience,
-                            'campus_need': campus_need,
-                            'sponsor_name': sponsor_name,
-                            'sponsor_netid': sponsor_netid,
-                            'sponsor_email': sponsor_email,
-                            'dev_name': dev_name,
-                            'dev_email': dev_email,
-                            'support_name': support_name,
-                            'support_email': support_email,
-                            'support_contact': support_contact,
-                            'ats_review': ats_review,
-                            'ux_review': ux_review,
-                            'brand_review': brand_review,
-                            'app_documentation': app_documentation,
-                            'app_code': app_code,
-                            'anything_else': anything_else
-                        })),
+                    .render(email_context),
                 ),
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')

@@ -42,7 +42,7 @@ class ReviewForm(forms.Form):
         required=False)
     app_code = forms.CharField(
         widget=forms.widgets.Textarea(),
-        label='How might we be able to review the app?')
+        label='How can we review the app?')
     anything_else = forms.CharField(
         widget=forms.widgets.Textarea(),
         label='Anything else that we should know?',

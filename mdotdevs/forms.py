@@ -23,6 +23,10 @@ class ReviewForm(forms.Form):
     ats_review = forms.BooleanField(
         required=False,
         label=mark_safe(
+            # THE FOLLOWING IS NOT A TUPLE!
+            # Using automatic string concatination here because a backslash in
+            # the middle of the link will result in a bunch of HTML encoded
+            # whitespace in the link, making it not work.
             ('Accessibility review with '
              '<a href="http://www.washington.edu/accessibility/" '
              'title="Accessible Technology Services">UW-IT ATS</a>')),

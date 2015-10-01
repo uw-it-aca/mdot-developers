@@ -76,7 +76,7 @@ def review(request):
                     sponsor_name,
                     get_template(
                         'mdotdevs/email_plain.html').render(email_context),
-                    sponsor_email, ['jcivjan@uw.edu'],
+                    sponsor_email, [settings.EMAIL_LIST["SPONSER_EMAIL"]],
                     html_message=get_template('mdotdevs/email_html.html')
                     .render(email_context),
                 ),

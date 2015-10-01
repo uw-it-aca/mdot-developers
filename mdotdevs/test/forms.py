@@ -125,9 +125,11 @@ class MdotdevsFormTest(TestCase):
 
     def test_form_links(self):
         response = self.client.get('/developers/review/')
-        self.assertTrue('http://www.washington.edu/accessibility/' in response.content)
+        self.assertTrue(('http://www.washington.edu/accessibility/'
+                        in response.content))
         self.assertTrue('http://www.washington.edu/brand/' in response.content)
-        self.assertTrue('http://depts.washington.edu/ux/consultation/' in response.content)
+        self.assertTrue(('http://depts.washington.edu/ux/consultation/'
+                        in response.content))
 
     def tearDown(self):
         pass

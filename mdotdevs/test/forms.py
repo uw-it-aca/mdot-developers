@@ -112,7 +112,7 @@ class MdotdevsFormTest(TestCase):
             'anything_else': 'This is a test.'}
         response = self.client.post('/developers/review/', form_data)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual('Invalid header found.', response.content)
+        self.assertTrue('Invalid header found' in response.content)
 
     def test_review_get(self):
         """
@@ -122,6 +122,14 @@ class MdotdevsFormTest(TestCase):
         response = self.client.get('/developers/review/')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('Submit your App for Review' in response.content)
+
+    def test_form_links(self):
+        response = self.client.get('/developers/review/')
+        self.assertTrue(('http://www.washington.edu/accessibility/'
+                        in response.content))
+        self.assertTrue('http://www.washington.edu/brand/' in response.content)
+        self.assertTrue(('http://depts.washington.edu/ux/consultation/'
+                        in response.content))
 
     def tearDown(self):
         pass

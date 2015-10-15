@@ -4,6 +4,7 @@ from django.template import RequestContext, Context
 from django.shortcuts import render_to_response, render
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
+from django.conf import settings
 
 import urllib
 import json

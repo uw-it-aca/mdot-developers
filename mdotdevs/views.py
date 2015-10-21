@@ -4,6 +4,7 @@ from django.template import RequestContext, Context
 from django.shortcuts import render_to_response, render
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
+from django.conf import settings
 
 import urllib
 import json
@@ -76,7 +77,7 @@ def review(request):
                     sponsor_name,
                     get_template(
                         'mdotdevs/email_plain.html').render(email_context),
-                    sponsor_email, ['jcivjan@uw.edu'],
+                    sponsor_email, [settings.EMAIL_LIST],
                     html_message=get_template('mdotdevs/email_html.html')
                     .render(email_context),
                 ),

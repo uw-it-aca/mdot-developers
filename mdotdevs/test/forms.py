@@ -1,5 +1,4 @@
-from django.test import TestCase
-from django.test import Client
+from django.test import Client, TestCase
 from mdotdevs.forms import ReviewForm
 
 
@@ -112,7 +111,7 @@ class MdotdevsFormTest(TestCase):
             'anything_else': 'This is a test.'}
         response = self.client.post('/developers/review/', form_data)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual('Invalid header found.', response.content)
+        self.assertContains(response, 'Invalid header found.')
 
     def test_review_get(self):
         """

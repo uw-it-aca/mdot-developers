@@ -11,6 +11,7 @@ install:
   - pip install django_compressor
   - pip install django-templatetag-handlebars
   - pip install django-easy-pjax
+  - npm install -g less
 before_script:
   - cp travis-ci/manage.py manage.py
   - python manage.py syncdb --noinput
